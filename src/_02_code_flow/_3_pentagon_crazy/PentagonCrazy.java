@@ -29,7 +29,7 @@ int angle = 360 / sides;
 		//         Set its start value to zero.
 int count = 0;
 		//  LOOP. Start a while loop to repeat the DRAW, TURN, and INCREASE COUNT code 200 times. 
-while (count < 201) {	
+while (count < 100) {	
 				//  DRAW.  Make the robot move the amount in your count variable
 rob.move(count);		
 				//  TURN.  Turn the robot the amount in your angle variable + 1
