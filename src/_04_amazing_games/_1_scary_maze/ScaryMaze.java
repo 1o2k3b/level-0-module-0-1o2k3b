@@ -3,6 +3,8 @@ package _04_amazing_games._1_scary_maze;
 import java.awt.Dimension;
 
 import java.awt.Graphics;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
 import java.awt.image.BufferedImage;
@@ -15,8 +17,9 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
+import javax.swing.Timer;
 
-public class ScaryMaze extends JPanel implements Runnable, MouseMotionListener {
+public class ScaryMaze extends JPanel implements Runnable, MouseMotionListener, ActionListener {
 	
 	/***********  SOUND ***************
 	 * Some computers are unable to play sounds. 
@@ -29,6 +32,7 @@ public class ScaryMaze extends JPanel implements Runnable, MouseMotionListener {
 	BufferedImage maze;
 	int frameWidth = 500;
 	int frameHeight = 500;
+	Timer resetTimer;
 
 	ScaryMaze() throws Exception {
 		
@@ -90,7 +94,9 @@ public class ScaryMaze extends JPanel implements Runnable, MouseMotionListener {
 			}
 			//13.  If the mouse is on the end color, pop up a message to tell them they won!
 			//    (you will need to get the number of the END COLOR by moving the mouse over it)
-
+			if (mouseColor == -12232092){
+				win();	
+			}
 					
 			
 		}	
@@ -112,7 +118,8 @@ public class ScaryMaze extends JPanel implements Runnable, MouseMotionListener {
 			
 		}	
 		/**********  SHOW A PICTURE ***************/
-
+		//-12232092 finish line color
+		
 		//12. Find a scary image and drop it into the _04_amazing_games._1_scary_maze package. 
 		//    Use the showScaryImage method below and send it the name of your picture file
 		showScaryImage("ew scary.jpg");
@@ -120,9 +127,24 @@ public class ScaryMaze extends JPanel implements Runnable, MouseMotionListener {
 		frameHeight = 956;
 		setPreferredSize(new Dimension(frameWidth, frameHeight));
 		frame.pack();
-		
+		resetGame();
 	}
 	
+	private void win() {
+		System.out.println("yyyaaaaayyyyyyyyyy!!!!!!!!!!!!");
+		
+		showScaryImage("win.jpg");
+		frameWidth = 720;
+		frameHeight = 360;
+		setPreferredSize(new Dimension(frameWidth, frameHeight));
+		frame.pack();
+		resetGame();
+	}
+	
+	private void resetGame(){
+		resetTimer = new Timer(5000,this);
+		resetTimer.start();
+	}
 
 	
 	/**********  DO NOT CHANGE THE CODE BELOW THIS LINE ***************/
@@ -180,6 +202,17 @@ public class ScaryMaze extends JPanel implements Runnable, MouseMotionListener {
 
 	@Override
 	public void mouseDragged(MouseEvent e) {}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		resetTimer.stop();
+		started = false;
+		showScaryImage("lostmaze.png");
+		frameWidth = 500;
+		frameHeight = 500;
+		setPreferredSize(new Dimension(frameWidth, frameHeight));
+		frame.pack();
+	}
 
 }
 
