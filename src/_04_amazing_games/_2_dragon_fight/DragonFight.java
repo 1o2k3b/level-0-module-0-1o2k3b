@@ -1,5 +1,8 @@
 package _04_amazing_games._2_dragon_fight;
 
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
 import java.util.Random;
 import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
@@ -63,22 +66,26 @@ public class DragonFight {
 			// THE DRAGON RETALIATES
 				
 				// 7. Find a random number between 0 and 35 and store it in dragonAttack
-	
+				dragonAttack = ran.nextInt(35);
 				// 8. Subtract the dragon attack value from the player's health
-
+				playerHealth -= dragonAttack;
 			// ASSESS THE DAMAGE
 
 				// 9. If the player's health is less than or equal to 0, the game is over,
 				//    call the playerLost() method
 	
-			
+			if(playerHealth <= 0) {
+				playerLost();
+			}
 				// 10. If the dragon's health is less than or equal to 0, the game is over,
 				//     call the dragonLost() method
-
+			if(dragonHealth <= 0) {
+				dragonLost();
+			}
 			
 				// 11.  Pop up a message that tells us how much health the player and
 				// 		dragon have left.
-
+			JOptionPane.showMessageDialog(null, "dragonHealth,"+dragonHealth+"playerHealth"+playerHealth);
 			
 			// (Bonus: Also display the amount of health that was lost by each in this
 			// round)
@@ -90,14 +97,17 @@ public class DragonFight {
 
 	static void playerLost() {
 		// 11. Tell the player that they have been defeated by the dragon and have no treasure
-
+		ImageIcon knight = new ImageIcon("src/_04_amazing_games/_2_dragon_fight/goodnightknight.jpg");
+		JOptionPane.showMessageDialog(null,"you died trying to get gold", "Goodnightknight", JOptionPane.INFORMATION_MESSAGE, knight);
 
 		System.exit(0);   //This code ends the program
 	}
 
 	static void dragonLost() {
 		// 12. Tell the user that the dragon has been defeated and they get a ton of gold!
-
+		ImageIcon gold = new ImageIcon("src/_04_amazing_games/_2_dragon_fight/gold.jpg");
+		JOptionPane.showMessageDialog(null,"you did't die trying to get gold and now your rich", "Gold", JOptionPane.INFORMATION_MESSAGE, gold);
+		
 		System.exit(0);   //This code ends the program
 	}
 
