@@ -51,16 +51,24 @@ fill(5, 125, 10);
 // 10 Use the ellipse() command to draw a circle on the eye (you will have to guess its size). 
 //    Use the x and y variables you just created to place the ellipse in the correct location.
 //                  The ellipse command looks like this:
-                ellipse(x, y, 39, 39);
+                ellipse(x, y, 49, 49);
+                
+                ellipse(x+72, y-5, 49, 49);
+
+                if(x > width){
+           x=353;
+           y=312;       
+    background(cat);              
 // Run the program to make sure it is in the right place and is the right size.
+                }
 }
 
 // 11.  LASER BEAM.  This code will make your ellipse move down and to the right when you press 
 //      the space bar. Run the program to test it.
 //      If you want it to move to the left, change to x-1=.
 void keyPressed() {
-    x+=1;
-    y+=1;
+    x+=7;
+    y+=7;
     
 // 12.  If you want them to go faster, add more than one each time the key is pressed    
 }
