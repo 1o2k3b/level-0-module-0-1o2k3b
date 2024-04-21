@@ -29,10 +29,18 @@ public class timerycode extends JFrame implements ActionListener , MouseListener
 		penalty.setText("penalty");
 		panel.add(button);
 		panel.add(timer);
-		panel.setBackground(Color.darkGray);
+		int red = 25;
+		int green = 160;
+		int blue = 80;
+		float[] hsb = Color.RGBtoHSB(red, green, blue, null);
+		float hue = hsb[0];
+		float saturation = hsb[1];
+		float brightness = hsb[2];
+		System.out.println("RGB [" + red + "," + green + "," + blue + "] converted to HGB" + hue + " , "+ saturation + " , " + brightness);
 		button.add(penalty);
 		panel.setLayout(null);
-		button.setBounds(275,300, 90, 35);
+		panel.setBackground(Color.getHSBColor(hue, saturation, brightness));
+		button.setBounds(275,300, 75, 35);
 		button.setBackground(Color.RED);
 		button.setOpaque(true);
 
@@ -102,6 +110,13 @@ public void mousePressed(MouseEvent arg0) {
 public void mouseReleased(MouseEvent arg0) {
 	// TODO Auto-generated method stub
 	button.setBackground(Color.red);
+}
+
+
+@Override
+public void actionPerformed(ActionEvent e) {
+	// TODO Auto-generated method stub
+	
 }
 
 }
