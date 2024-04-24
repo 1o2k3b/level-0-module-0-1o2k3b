@@ -27,9 +27,29 @@ public class timerycode extends JFrame implements ActionListener, MouseListener{
 	JLabel out = new JLabel();
 	JLabel code = new JLabel();
 	long time = System.currentTimeMillis();
+	int re = 25;
+	int gree = 150;
+	int blu =  70;
+	float[] hs = Color.RGBtoHSB(re, gree, blu, null);
+	float hu = hs[0];
+	float sat = hs[1];
+	float bright = hs[2];
+	int r = 150;
+	int gre = 40;
+	int bl =  70;
+	float[] h = Color.RGBtoHSB(r, gre, bl, null);
+	float hua = h[0];
+	float sa = h[1];
+	float brigh = h[2];
 	int minutes = 44;
 	int sec;
-
+	int red = 15;
+	int green = 80;
+	int blue = 160;
+	float[] hsb = Color.RGBtoHSB(red, green, blue, null);
+	float hue = hsb[0];
+	float saturation = hsb[1];
+	float brightness = hsb[2];
 	public void run() throws InterruptedException {
 
 		frame.add(panel);
@@ -44,20 +64,17 @@ public class timerycode extends JFrame implements ActionListener, MouseListener{
 		panel.add(code);
 		
 		timer.setFont(timer.getFont().deriveFont(Font.BOLD, 30));
-		int red = 15;
-		int green = 80;
-		int blue = 160;
-		float[] hsb = Color.RGBtoHSB(red, green, blue, null);
-		float hue = hsb[0];
-		float saturation = hsb[1];
-		float brightness = hsb[2];
+	
+
+		
 		System.out.println("RGB [" + red + "," + green + "," + blue + "] converted to HGB" + hue + " , "+ saturation + " , " + brightness);
 		button.add(penalty);
 		//code.setBounds();
-		check.setBounds(238, 180, 70, 30);
+		check.setBounds(238, 180, 85, 30);
 		check.setText("check");
 		check.addActionListener(this);
-		check.setBackground(Color.green);
+		check.setOpaque(true);
+		check.setBorderPainted(true);
 		out.setVisible(true);
 		out.setText("output");
 		out.setOpaque(true);
@@ -67,20 +84,22 @@ public class timerycode extends JFrame implements ActionListener, MouseListener{
 		out.setForeground(Color.WHITE);
 		out.setHorizontalAlignment(NORMAL);
 		output.setVisible(true);
-		output.setText("code/hint");
-		output.setOpaque(true);
-		output.setBounds(238, 115, 75, 40);
+		output.setText("code");
+		output.setOpaque(false);
+		output.setBounds(238, 115, 80, 40);
 		output.setFont(output.getFont().deriveFont(Font.BOLD, 15));
 		output.setHorizontalAlignment(NORMAL);
 		output.setBackground(Color.cyan);
 		input.setBounds(180, 152, 200, 30);
 		panel.setLayout(null);
 		panel.setBackground(Color.getHSBColor(hue, saturation, brightness));
-		button.setBounds(235, 245, 75, 35);
+		button.setBounds(227, 242, 95, 28);
+		button.setHorizontalAlignment(NORMAL);
 		button.setBackground(Color.RED);
 		button.setOpaque(true);
 		button.addMouseListener(this);
 		button.setBorderPainted(false);
+		
 		timer.setHorizontalAlignment(NORMAL);
 		timer.setBounds(0, 0, 600, 100);
 		timer.setOpaque(true);
@@ -107,21 +126,24 @@ public class timerycode extends JFrame implements ActionListener, MouseListener{
 public static void main(String[] args) throws InterruptedException {
 timerycode code = new timerycode();
 code.run();
-	
-	
-	
-	
 }
 
 
 @Override
-public void actionPerformed(ActionEvent e) {
+public void actionPerformed(ActionEvent e){
 	// TODO Auto-generated method stub
 String yes = input.getText();
-if(yes.equals("72")) {
-	out.setText("you did it");
+if(yes.equals("reset")) {
+	panel.setBackground(Color.getHSBColor(hue, saturation, brightness));
+
+} else if(yes.equals("759375024731")) {
+	out.setText("come in V.I.P., the code is 7304.");
+	panel.setBackground(Color.getHSBColor(hu, sat, bright));
+	
 } else {
 	out.setText("press penalty");
+	panel.setBackground(Color.getHSBColor(hua, sa, brigh));
+	
 }
 }
 
@@ -137,6 +159,7 @@ public void mouseClicked(MouseEvent e) {
 public void mousePressed(MouseEvent e) {
 	// TODO Auto-generated method stub
 	minutes-=3;
+	panel.setBackground(Color.getHSBColor(hue, saturation, brightness));
 }
 
 
