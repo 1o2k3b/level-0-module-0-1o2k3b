@@ -24,7 +24,8 @@ public class timerycode extends JFrame implements ActionListener, MouseListener{
 	JTextField input = new JTextField();
 	JButton check = new JButton();
 	JLabel output = new JLabel();
-	
+	JLabel out = new JLabel();
+	JLabel code = new JLabel();
 	long time = System.currentTimeMillis();
 	int minutes = 44;
 	int sec;
@@ -39,7 +40,8 @@ public class timerycode extends JFrame implements ActionListener, MouseListener{
 		panel.add(input);
 		panel.add(check);
 		panel.add(output);
-		input.setBounds(180, 140, 200, 30);
+		panel.add(out);
+		panel.add(code);
 		
 		timer.setFont(timer.getFont().deriveFont(Font.BOLD, 30));
 		int red = 15;
@@ -51,24 +53,38 @@ public class timerycode extends JFrame implements ActionListener, MouseListener{
 		float brightness = hsb[2];
 		System.out.println("RGB [" + red + "," + green + "," + blue + "] converted to HGB" + hue + " , "+ saturation + " , " + brightness);
 		button.add(penalty);
-		check.setBounds(238, 200, 70, 45);
+		//code.setBounds();
+		check.setBounds(238, 180, 70, 30);
 		check.setText("check");
 		check.addActionListener(this);
 		check.setBackground(Color.green);
+		out.setVisible(true);
+		out.setText("output");
+		out.setOpaque(true);
+		out.setBounds(0, 280, 600, 100);
+		out.setBackground(Color.black);
+		out.setFont(out.getFont().deriveFont(Font.BOLD, 15));
+		out.setForeground(Color.WHITE);
+		out.setHorizontalAlignment(NORMAL);
 		output.setVisible(true);
-		output.setText("hello");
+		output.setText("code/hint");
 		output.setOpaque(true);
-		output.setBounds(238, 250, 60, 40);
-		output.setFont(output.getFont().deriveFont(Font.BOLD, 20));
+		output.setBounds(238, 115, 75, 40);
+		output.setFont(output.getFont().deriveFont(Font.BOLD, 15));
+		output.setHorizontalAlignment(NORMAL);
 		output.setBackground(Color.cyan);
+		input.setBounds(180, 152, 200, 30);
 		panel.setLayout(null);
 		panel.setBackground(Color.getHSBColor(hue, saturation, brightness));
-		button.setBounds(235,300, 75, 35);
+		button.setBounds(235, 245, 75, 35);
 		button.setBackground(Color.RED);
 		button.setOpaque(true);
 		button.addMouseListener(this);
 		button.setBorderPainted(false);
-		timer.setBounds(250, 10, 100, 50);
+		timer.setHorizontalAlignment(NORMAL);
+		timer.setBounds(0, 0, 600, 100);
+		timer.setOpaque(true);
+		timer.setBackground(Color.yellow);
 		frame.pack();
 
 		frame.setSize(600, 400);
@@ -103,7 +119,9 @@ public void actionPerformed(ActionEvent e) {
 	// TODO Auto-generated method stub
 String yes = input.getText();
 if(yes.equals("72")) {
-	JOptionPane.showMessageDialog(null, "finally");
+	out.setText("you did it");
+} else {
+	out.setText("press penalty");
 }
 }
 
