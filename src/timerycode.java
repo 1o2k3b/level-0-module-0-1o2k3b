@@ -133,17 +133,21 @@ code.run();
 public void actionPerformed(ActionEvent e){
 	// TODO Auto-generated method stub
 String yes = input.getText();
-if(yes.equals("reset")) {
+if(yes.equals("radiation danger")) {
+	out.setText("7492,but be safe, high danger");
+	panel.setBackground(Color.getHSBColor(hu, sat, bright));
+} else if(yes.equals("reset")) {
 	panel.setBackground(Color.getHSBColor(hue, saturation, brightness));
-
+	out.setText("output");
 } else if(yes.equals("759375024731")) {
 	out.setText("come in V.I.P., the code is 7304.");
 	panel.setBackground(Color.getHSBColor(hu, sat, bright));
+
 	
 } else {
-	out.setText("press penalty");
+	out.setText("nice try, now press penalty");
 	panel.setBackground(Color.getHSBColor(hua, sa, brigh));
-	
+	out.setText("output");
 }
 }
 
