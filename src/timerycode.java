@@ -142,12 +142,9 @@ if(yes.equals("radiation danger")) {
 } else if(yes.equals("759375024731")) {
 	out.setText("come in V.I.P., the code is 7304.");
 	panel.setBackground(Color.getHSBColor(hu, sat, bright));
-
-	
 } else {
 	out.setText("nice try, now press penalty");
 	panel.setBackground(Color.getHSBColor(hua, sa, brigh));
-	out.setText("output");
 }
 }
 
