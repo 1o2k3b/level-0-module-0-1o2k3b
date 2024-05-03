@@ -25,6 +25,7 @@ public class button implements MouseListener, ActionListener{
 	int goldenChance = 100;
 	int goldenMulti = 2;
 	int goldenCost = 50;
+	int costGolden = 100;
 	JFrame frame = new JFrame();
 	JLabel score = new JLabel();
 	JButton click = new JButton();
@@ -37,7 +38,7 @@ public class button implements MouseListener, ActionListener{
 	
 public void run() {
 	frame.setVisible(true);
-	frame.setSize(300, 500);
+	frame.setSize(400, 500);
 	frame.add(panel);
 	panel.setLayout(null);
 	panel.add(click);
@@ -46,23 +47,27 @@ public void run() {
 	panel.add(score);
 	panel.add(Mulitplier);
 	panel.setBackground(background);
-	click.setBounds(100, 100, 100, 100);
+	click.setBounds(125, 100, 150, 100);
 	click.setOpaque(true);
 	click.setBorderPainted(true);
 	click.setBackground(background);
 	click.setBorderPainted(false);
 	click.setBackground(mainButtonColor);
 	click.addMouseListener(this);
-	score.setBounds(50, 20, 200, 40);
+	click.setText("CLICK");
+	click.setFont(new Font(null).deriveFont(Font.BOLD, 38));
+	score.setBounds(100, 20, 200, 40);
 	score.setFont(new Font("Times New Roman", Font.BOLD, 30));
 	score.setOpaque(true);
-	Mulitplier.setBounds(75, 250, 150, 50);
+	Mulitplier.setBounds(125, 250, 150, 50);
 	Mulitplier.addMouseListener(this);
 	Mulitplier.setText("multiplier for " + amountCost);
+	goldenMultiplier.setBounds(200, 325, 175, 40);
 	goldenMultiplier.addMouseListener(this);
 	goldenPossibility.addMouseListener(this);
 	goldenPossibility.setBounds(10, 325, 175, 40);
 	goldenPossibility.setText("golden chance cost: " + goldenCost);
+	
 }
 
 public static void main(String[] args) {
@@ -97,7 +102,17 @@ public void mouseClicked(MouseEvent e) {
 		if(scor >= goldenCost) {
 			scor-=goldenCost;
 			goldenCost*=3;
-			goldenChance--;
+			goldenPossibility.setText("golden multiplier: " + goldenCost);
+			goldenChance-=5;
+			score.setText("money = " + scor);
+		}
+	}
+	if(e.getSource() == goldenMultiplier) {
+		if(scor >= goldenCost) {
+			scor-=goldenCost;
+			goldenCost*=5;
+			goldenPossibility.setText("golden multiplier: " + goldenCost);
+			goldenMulti++;
 			score.setText("money = " + scor);
 		}
 	}
