@@ -76,7 +76,7 @@ public class timerycode extends JFrame implements ActionListener, MouseListener 
         out.setOpaque(true);
         out.setBounds(0, 280, 600, 100);
         out.setBackground(Color.black);
-        out.setFont(out.getFont().deriveFont(Font.BOLD, 15));
+        out.setFont(out.getFont().deriveFont(Font.BOLD, 12));
         out.setForeground(Color.WHITE);
         out.setHorizontalAlignment(SwingConstants.CENTER);
 
@@ -143,7 +143,7 @@ public class timerycode extends JFrame implements ActionListener, MouseListener 
                 break;
             case "2":
             	minutes-=3;
-            	out.setText("Not much I can help with, but may I remind you that bouncing bullets still kill guards, as well as you");
+            	out.setText("may I remind you that bouncing bullets still kill guards, as well as you");
                 break;
             case "3":
             	minutes-=3;
@@ -159,7 +159,7 @@ public class timerycode extends JFrame implements ActionListener, MouseListener 
                 break;
             case "6":
             	minutes-=3;
-            	out.setText("Choose wisely, think about your remaining time, and the difficulties yet to come.");
+            	out.setText("Choose wisely, think about your remaining time, and then choose the difficulty you want.");
                 break;
             default:
                 break;
