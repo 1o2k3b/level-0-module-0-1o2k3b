@@ -10,9 +10,9 @@ Random ran = new Random();
 int r;
 int b;
 int g;
-int movingR = 0;
-int movingB = 0;
-int movingG = 0;
+int movingR = ran.nextInt(255);
+int movingB = ran.nextInt(255);
+int movingG = ran.nextInt(255);
 
 Color c = new Color(0);
 
@@ -33,7 +33,7 @@ public void setup() {
 	label.setSize(600, 400);
 	
 }
-public void run() {
+public void run() throws InterruptedException {
 	if(r>movingR) {
 		movingR++;
 	}
@@ -52,19 +52,33 @@ public void run() {
 	if(g<movingG) {
 		movingG--;
 	}
+	if(g == movingG) {
+		g = ran.nextInt(255);
+	}
+	if(b == movingB) {
+		b = ran.nextInt(255);
+	}
+	if(r == movingR) {
+		r = ran.nextInt(255);
+	}
+	if(ran.nextInt(200) == 50) {
+		r = ran.nextInt(255);
+		b = ran.nextInt(255);
+		g = ran.nextInt(255);
+	}
+	if(r == movingR && b == movingB && g == movingG) {
+
+	}
+	Thread.sleep(50);
+	
 c = new Color(movingR, movingB, movingG);
 	label.setOpaque(true);
 	label.setBackground(c);
 	
 }
 public void reset() throws InterruptedException {
-	Thread.sleep(5000);
 	
-	r = ran.nextInt(255);
-	b = ran.nextInt(255);
-	g = ran.nextInt(255);
-	
-	System.out.println("r: " + movingR + "b: " + movingB + "g: " + movingG);
+	System.out.println(" r: " + movingR + " b: " + movingB + " g: " + movingG);
 	
 }
 public static void main(String[] args) throws InterruptedException {
