@@ -37,7 +37,7 @@ public void run() throws InterruptedException {
 	if(r>movingR) {
 		movingR++;
 	}
-	if(r<movingB) {
+	if(r<movingR) {
 		movingR--;
 	}
 	if(b>movingB) {
@@ -60,14 +60,6 @@ public void run() throws InterruptedException {
 	}
 	if(r == movingR) {
 		r = ran.nextInt(255);
-	}
-	if(ran.nextInt(200) == 50) {
-		r = ran.nextInt(255);
-		b = ran.nextInt(255);
-		g = ran.nextInt(255);
-	}
-	if(r == movingR && b == movingB && g == movingG) {
-
 	}
 	Thread.sleep(50);
 	
