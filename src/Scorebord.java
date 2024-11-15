@@ -9,7 +9,12 @@ import javax.swing.*;
 
 
 public class Scorebord implements ActionListener {
-Color[] rainbow = {Color.red, Color.orange, Color.yellow, Color.green, Color.blue, new Color(106, 13, 173)};
+Color[] rainbow1 = {Color.red, Color.orange, Color.yellow, Color.green, Color.blue, new Color(106, 13, 173)};
+Color[] rainbow2 = {new Color(106, 13, 173), Color.red, Color.orange, Color.yellow, Color.green, Color.blue};
+Color[] rainbow3 = {Color.blue, new Color(106, 13, 173), Color.red, Color.orange, Color.yellow, Color.green};
+Color[] rainbow4 = {Color.green, Color.blue, new Color(106, 13, 173), Color.red, Color.orange, Color.yellow};
+Color[] rainbow5 = {Color.yellow, Color.green, Color.blue, new Color(106, 13, 173), Color.red, Color.orange};
+Color[] rainbow6 = {Color.orange, Color.yellow, Color.green, Color.blue, new Color(106, 13, 173), Color.red};
 int[] yPos = {0, 90, 180, 460, 550, 640};
 int oneScore = 0;
 JFrame frame = new JFrame();
@@ -60,14 +65,55 @@ public void setup() {
 	twoAdd.setHorizontalAlignment(JLabel.CENTER);
 	twoAdd.setText("+");
 	twoAdd.addActionListener(this);
-	while(true) {
-	for(int i = f; (i+f)%6<6; i++) {
+	for(int i = 0; i<6; i++) {
 		colors[i] = new JLabel();
 		panel.add(colors[i]);
 		colors[i].setOpaque(true);
 		colors[i].setBounds(0, yPos[i], 1280, 90);
-		colors[i].setBackground(rainbow[i]);
+		colors[i].setBackground(rainbow1[i]);
 	}
+	while(true) {
+		if(oneScore == 5) {
+			for(int i = 0; i<6; i++) {
+				colors[i].setBackground(rainbow1[i]);			
+			}
+			for(int i = 0; i<6; i++) {
+				colors[i].setBackground(rainbow2[i]);			
+			}
+			for(int i = 0; i<6; i++) {
+				colors[i].setBackground(rainbow3[i]);			
+			}
+			for(int i = 0; i<6; i++) {
+				colors[i].setBackground(rainbow4[i]);			
+			}
+			for(int i = 0; i<6; i++) {
+				colors[i].setBackground(rainbow5[i]);			
+			}
+			for(int i = 0; i<6; i++) {
+				colors[i].setBackground(rainbow6[i]);			
+			}
+			if(twoScore == 5) {
+				for(int i = 0; i<6; i++) {
+					colors[i].setBackground(rainbow1[i]);			
+				}
+				
+				for(int i = 0; i<6; i++) {
+					colors[i].setBackground(rainbow2[i]);			
+				}
+				for(int i = 0; i<6; i++) {
+					colors[i].setBackground(rainbow3[i]);			
+				}
+				for(int i = 0; i<6; i++) {
+					colors[i].setBackground(rainbow4[i]);			
+				}
+				for(int i = 0; i<6; i++) {
+					colors[i].setBackground(rainbow5[i]);			
+				}
+				for(int i = 0; i<6; i++) {
+					colors[i].setBackground(rainbow6[i]);			
+				}
+			}
+		}
 	}
 }
 @Override
@@ -75,7 +121,7 @@ public void actionPerformed(ActionEvent e) {
 	// TODO Auto-generated method stub
 	
 
-	f++;
+
 	if(e.getSource() == oneAdd) {
 		oneScore++;
 		pOne.setText("Player One: " + oneScore);
@@ -85,10 +131,10 @@ public void actionPerformed(ActionEvent e) {
 		pTwo.setText("Player Two: " + twoScore);
 	}
 	
-if(f == 0) {
-	Color color[] = {Color.red, Color.orange, Color.yellow, Color.green, Color.blue, new Color(106, 13, 173)};
-	
+
 }
 		
-	}
+	
+
 }
+
