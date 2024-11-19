@@ -28,11 +28,14 @@ JButton twoAdd = new JButton();
 int f = 0;
 int twoScore = 0;
 Border b = BorderFactory.createLineBorder(Color.black, 5);
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException  {
 	Scorebord s = new Scorebord();
 	s.setup();
+	while(true) {
+s.spin();
+	}
 }
-public void setup() {
+public void setup() throws InterruptedException {
 	frame.setVisible(true);
 	frame.setSize(1280, 750);
 	frame.add(panel);
@@ -54,7 +57,7 @@ public void setup() {
 	pTwo.setBounds(750, 340, 400, 50);
 	pTwo.setFont(new Font("Times New Roman",Font.PLAIN, 40));
 	pTwo.setHorizontalAlignment(JLabel.CENTER);
-	pTwo.setText("Player Two: " + oneScore);
+	pTwo.setText("Player Two: " + twoScore);
 	oneAdd.setBounds(487, 340, 100, 50);
 	oneAdd.setFont(new Font("Times New Roman",Font.BOLD, 80));
 	oneAdd.setHorizontalAlignment(JLabel.CENTER);
@@ -72,50 +75,70 @@ public void setup() {
 		colors[i].setBounds(0, yPos[i], 1280, 90);
 		colors[i].setBackground(rainbow1[i]);
 	}
-	while(true) {
-		if(oneScore == 5) {
-			for(int i = 0; i<6; i++) {
-				colors[i].setBackground(rainbow1[i]);			
-			}
-			for(int i = 0; i<6; i++) {
-				colors[i].setBackground(rainbow2[i]);			
-			}
-			for(int i = 0; i<6; i++) {
-				colors[i].setBackground(rainbow3[i]);			
-			}
-			for(int i = 0; i<6; i++) {
-				colors[i].setBackground(rainbow4[i]);			
-			}
-			for(int i = 0; i<6; i++) {
-				colors[i].setBackground(rainbow5[i]);			
-			}
-			for(int i = 0; i<6; i++) {
-				colors[i].setBackground(rainbow6[i]);			
-			}
+	if(oneScore == 5) {
+	
+}
+	
 			if(twoScore == 5) {
-				for(int i = 0; i<6; i++) {
-					colors[i].setBackground(rainbow1[i]);			
-				}
-				
-				for(int i = 0; i<6; i++) {
-					colors[i].setBackground(rainbow2[i]);			
-				}
-				for(int i = 0; i<6; i++) {
-					colors[i].setBackground(rainbow3[i]);			
-				}
-				for(int i = 0; i<6; i++) {
-					colors[i].setBackground(rainbow4[i]);			
-				}
-				for(int i = 0; i<6; i++) {
-					colors[i].setBackground(rainbow5[i]);			
-				}
-				for(int i = 0; i<6; i++) {
-					colors[i].setBackground(rainbow6[i]);			
-				}
-			}
+		
+}
+}
+
+	public void spin() throws InterruptedException {
+		if(oneScore==5) {
+		for(int i = 0; i<6; i++) {
+			colors[i].setBackground(rainbow1[i]);	
+			Thread.sleep(50);	
+		}
+		for(int i = 0; i<6; i++) {
+			colors[i].setBackground(rainbow2[i]);	
+			Thread.sleep(50);	
+		}
+		for(int i = 0; i<6; i++) {
+			colors[i].setBackground(rainbow3[i]);
+			Thread.sleep(50);	
+		}
+		for(int i = 0; i<6; i++) {
+			colors[i].setBackground(rainbow4[i]);
+			Thread.sleep(50);	
+		}
+		for(int i = 0; i<6; i++) {
+			colors[i].setBackground(rainbow5[i]);
+			Thread.sleep(50);	
+		}
+		for(int i = 0; i<6; i++) {
+			colors[i].setBackground(rainbow6[i]);
+			Thread.sleep(50);
+		}
+		if(twoScore==5) {
+		for(int i = 0; i<6; i++) {
+			colors[i].setBackground(rainbow1[i]);	
+			Thread.sleep(50);	
+		}
+		for(int i = 0; i<6; i++) {
+			colors[i].setBackground(rainbow2[i]);	
+			Thread.sleep(50);	
+		}
+		for(int i = 0; i<6; i++) {
+			colors[i].setBackground(rainbow3[i]);
+			Thread.sleep(50);	
+		}
+		for(int i = 0; i<6; i++) {
+			colors[i].setBackground(rainbow4[i]);
+			Thread.sleep(50);	
+		}
+		for(int i = 0; i<6; i++) {
+			colors[i].setBackground(rainbow5[i]);
+			Thread.sleep(50);	
+		}
+		for(int i = 0; i<6; i++) {
+			colors[i].setBackground(rainbow6[i]);
+			Thread.sleep(50);
+		}
+		}
 		}
 	}
-}
+	
 @Override
 public void actionPerformed(ActionEvent e) {
 	// TODO Auto-generated method stub
